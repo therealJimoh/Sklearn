@@ -1,0 +1,35 @@
+version: 2.1
+
+
+orbs:
+  python: circleci/python@1.5.0
+
+jobs:
+  build-and-test: 
+    docker:
+      - image: cimg/python:3.10.2
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "requirements.txt"}}
+      - run:
+          name: Install Dependencies
+          command: |
+            python3 -m venv ~/.venv
+            source ~/.venv/bin/activate
+            make install
+      # - run:
+      #     name: Install hadolint
+      #     command: |
+      #       wget -O /bin/hadolint https://github.com/hadolint/hadolint/releases/download/v2.10.0/hadolint-Linux-x86_64
+      #       sudo chmod a+rx /bin/hadolint
+      - run:
+          name: Run Lint
+          command: |
+            source ~/.venv/bin/activate
+            make lint
+workflows:
+  ContainerizeApp: 
+    jobs:
+      - build-and-test
