@@ -4,7 +4,7 @@ setup:
 
 install:
 	pip install --upgrade pip &&\
-		pip install -r requirements.txt
+		pip install --no-cache-dir -r requirements.txt
 
 test:
 	# Additional, optional, tests could go here
