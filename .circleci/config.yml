@@ -26,7 +26,7 @@ jobs:
       - run:
           name: Run Lint
           command: |
-            . devops/bin/activate
+            .devops/bin/activate
             make lint
 workflows:
   ML-Sklearn: 
