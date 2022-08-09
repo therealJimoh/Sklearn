@@ -17,6 +17,7 @@ jobs:
             python3 -m venv ~/.devops
             source ~/.devops/bin/activate
             make install
+            apt-get install sudo -y
             wget -O /bin/hadolint https://github.com/hadolint/hadolint/releases/download/v2.10.0/hadolint-Linux-x86_64
             sudo chmod +x /bin/hadolint
       - save_cache:
@@ -28,7 +29,7 @@ jobs:
           command: |
             . devops/bin/activate
             make lint
-# workflows:
-#   ML-Sklearn: 
-#     jobs:
-#       - build
+workflows:
+  ML-Sklearn: 
+    jobs:
+      - build
