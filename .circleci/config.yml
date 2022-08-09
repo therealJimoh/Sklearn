@@ -32,6 +32,6 @@ jobs:
             . devops/bin/activate
             make lint
 workflows:
-  ContainerizeApp: 
+  ML-Sklearn: 
     jobs:
       - build-and-test
