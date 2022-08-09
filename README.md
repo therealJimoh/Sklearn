@@ -3,7 +3,7 @@
 
 
 # Operantionalize a Machine Learning Model
-A Python-Flask production microservice app of a pre-trained machine learning model to predict housing prices in Boston built and deploy with DOcker and Kubernetes in a CircleCI pipeline.
+A Python-Flask production microservice app of a pre-trained machine learning model to predict housing prices in Boston was built and deployed with Docker and Kubernetes in a CircleCI pipeline.
 
 ## Setup the Environment
 
